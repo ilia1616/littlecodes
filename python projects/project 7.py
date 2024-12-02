@@ -1,0 +1,90 @@
+from tkinter import *
+from time import sleep
+
+win = Tk()
+p = [133,250,266,250,200,150]
+
+def flour():
+    top = Toplevel()
+    top.title('numbers')
+    top.config(cursor = 'heart')
+    c = Canvas(top,width = 400,height = 400,bg = 'blue')
+    c.pack()
+    c.create_rectangle(133,132,266,265,fill = 'green')
+    tr = c.create_polygon(p,outline = 'blue',fill = 'blue',width = 2)
+    lb = Label(top,text = 1)
+    lb.pack()
+    lb.place(x = 200,y= 200)
+
+def flour2():
+    top = Toplevel()
+    top.title('numbers')
+    top.config(cursor = 'heart')
+    c = Canvas(top,width = 400,height = 400,bg = 'blue')
+    c.pack()
+    c.create_rectangle(133,132,266,265,fill = 'green')
+    tr = c.create_polygon(p,outline = 'blue',fill = 'blue',width = 2)
+    lb = Label(top,text = 2)
+    lb.pack()
+    lb.place(x = 200,y= 200)
+
+def flour3():
+    top = Toplevel()
+    top.title('numbers')
+    top.config(cursor = 'heart')
+    c = Canvas(top,width = 400,height = 400,bg = 'blue')
+    c.pack()
+    c.create_rectangle(133,132,266,265,fill = 'green')
+    tr = c.create_polygon(p,outline = 'blue',fill = 'blue',width = 2)
+    lb = Label(top,text = 3)
+    lb.pack()
+    lb.place(x = 200,y= 200)
+
+def flour4():
+    top = Toplevel()
+    top.title('numbers')
+    top.config(cursor = 'heart')
+    c = Canvas(top,width = 400,height = 400,bg = 'blue')
+    c.pack()
+    c.create_rectangle(133,132,266,265,fill = 'green')
+    tr = c.create_polygon(p,outline = 'blue',fill = 'blue',width = 2)
+    lb = Label(top,text = 4)
+    lb.pack()
+    lb.place(x = 200,y= 200)
+
+def flour5():
+    top = Toplevel()
+    top.title('numbers')
+    top.config(cursor = 'heart')
+    c = Canvas(top,width = 400,height = 400,bg = 'blue')
+    c.pack()
+    c.create_rectangle(133,132,266,265,fill = 'green')
+    tr = c.create_polygon(p,outline = 'blue',fill = 'blue',width = 2)
+    lb = Label(top,text = 5)
+    lb.pack()
+    lb.place(x = 200,y= 200)
+
+def flour6():
+    top = Toplevel()
+    top.title('numbers')
+    top.config(cursor = 'heart')
+    c = Canvas(top,width = 400,height = 400,bg = 'blue')
+    c.pack()
+    c.create_rectangle(133,132,266,265,fill = 'green')
+    tr = c.create_polygon(p,outline = 'blue',fill = 'blue',width = 2)
+    lb = Label(top,text = 6)
+    lb.pack()
+    lb.place(x = 200,y= 200)
+    
+btn1 = Button(win,text = 'flour 1',command = flour)
+btn1.pack()
+btn2 = Button(win,text = 'flour 2',command = flour2)
+btn2.pack()
+btn3 = Button(win,text = 'flour 3',command = flour3)
+btn3.pack()
+btn4 = Button(win,text = 'flour 4',command = flour4)
+btn4.pack()
+btn5 = Button(win,text = 'flour 5',command = flour5)
+btn5.pack()
+btn6 = Button(win,text = 'flour 6',command = flour6)
+btn6.pack()
