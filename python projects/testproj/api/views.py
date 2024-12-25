@@ -19,3 +19,15 @@ def create_user(request):
                         status=status.HTTP_201_CREATED)
     return Response(serializer.errors, 
                     status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['POST'])
+def auth(request):
+    serializer = UserJsonizer(data=request.data)
+    if serializer.is_valid():
+        username = serializer.validated_data.get('username') # problem is here
+        password = serializer.validated_data.get("password") # moshkel injast
+        if username == 'admin' and password == 'admin':
+            return Response("Access granted", status=status.HTTP_202_ACCEPTED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
+    return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
