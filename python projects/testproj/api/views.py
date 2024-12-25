@@ -5,9 +5,10 @@ from .models import User
 from .jsonizer import UserJsonizer
 
 @api_view(['GET'])
-def get_user(request):
-    return Response(UserJsonizer({'username':'admin',
-                                  'password':'admin'}).data)
+def get_user(request, pk):
+    usr = User.objects.get(pk=pk)
+    serializer = UserJsonizer(usr)
+    return Response(serializer.data)
     
 @api_view(['POST'])
 def create_user(request):
