@@ -16,14 +16,13 @@ def get_user(request, pk):
 def create_user(request):
     serializer = UserJsonizer(data=request.data)
     if serializer.is_valid():
-        #username = serializer.validated_data.get('username')
-        #password = serializer.validated_data.get('password')
-        #new_user = User(username=username, password=password)
-        #new_user.save()
-        serializer.save()
-        transaction.commit()
-        return Response(serializer.data,
-                        status=status.HTTP_201_CREATED)
+        username = serializer.validated_data.get('username')
+        if User.objects.filter(username=username).exists():
+            return Response("User exists",status=status.HTTP_406_NOT_ACCEPTABLE)
+        else:
+            serializer.save()
+            return Response(serializer.data,
+                            status=status.HTTP_201_CREATED)
     return Response(serializer.errors, 
                     status=status.HTTP_400_BAD_REQUEST)
 
