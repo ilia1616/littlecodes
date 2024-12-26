@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import get_user, create_user, auth
 
-urlpatterns =[path('user/<int:id>', get_user ,name='get_user'),
+urlpatterns =[path('user/<int:pk>', get_user ,name='get_user'),
               path('create/', create_user,name='create_user'),
               path('auth/', auth, name="authentication")
               ]

@@ -14,18 +14,22 @@ def get_user(request, pk):
 def create_user(request):
     serializer = UserJsonizer(data=request.data)
     if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data,
+        username = serializer.validated_data.get('username')
+        password = serializer.validated_data.get('password')
+        new_user = User.objects.create(username=username, password=password)
+        return Response(new_user,
                         status=status.HTTP_201_CREATED)
     return Response(serializer.errors, 
                     status=status.HTTP_400_BAD_REQUEST)
+
+
 
 @api_view(['POST'])
 def auth(request):
     serializer = UserJsonizer(data=request.data)
     if serializer.is_valid():
-        username = serializer.validated_data.get('username') # problem is here
-        password = serializer.validated_data.get("password") # moshkel injast
+        username = serializer.validated_data.get('username')
+        password = serializer.validated_data.get("password")
         if username == 'admin' and password == 'admin':
             return Response("Access granted", status=status.HTTP_202_ACCEPTED)
         else:
