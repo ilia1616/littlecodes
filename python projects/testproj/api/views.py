@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import User
 from .jsonizer import UserJsonizer
+from django.db import transaction
+transaction.set_autocommit(True)
 
 @api_view(['GET'])
 def get_user(request, pk):
@@ -14,10 +16,13 @@ def get_user(request, pk):
 def create_user(request):
     serializer = UserJsonizer(data=request.data)
     if serializer.is_valid():
-        username = serializer.validated_data.get('username')
-        password = serializer.validated_data.get('password')
-        new_user = User.objects.create(username=username, password=password)
-        return Response(new_user,
+        #username = serializer.validated_data.get('username')
+        #password = serializer.validated_data.get('password')
+        #new_user = User(username=username, password=password)
+        #new_user.save()
+        serializer.save()
+        transaction.commit()
+        return Response(serializer.data,
                         status=status.HTTP_201_CREATED)
     return Response(serializer.errors, 
                     status=status.HTTP_400_BAD_REQUEST)
