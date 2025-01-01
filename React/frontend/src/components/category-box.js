@@ -1,20 +1,20 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const CategoryBox = ({category, items}) => {
+const CategoryBox = ({id, category, name}) => {
     const nav = useNavigate();
 
     return(
         <div className="category-box">
             <h2>{category}</h2>
             <ul>
-                {items.map((item,index) => 
-                <li key={index}>
-                    <button onClick={() => nav("http://localhost:3000/" + {item})}>
-
+                {/* {items.map((item,id) =>  */}
+                <li key={id}>
+                    <button onClick={() => nav(`/${category}/${name}`)}>
+                    {name}
                     </button>
                     </li>
-                )}
+                {/* )} */}
             </ul>
         </div>
     );

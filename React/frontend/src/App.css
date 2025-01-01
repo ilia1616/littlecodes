@@ -26,6 +26,11 @@
   border-bottom: 1px solid #eee;
 }
 
+.category-box button {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+}
+
 .category-box li:last-child {
   border-bottom: none;
 }
