@@ -1,49 +1,47 @@
-import React from 'react'
-
 
 export const categories = [{
         id: 1,
-        categorie: 'Fruits',
+        categorie: 'fruits',
         name: "apple"
         
     },{
         id: 2,
-        categorie: 'Fruits',
+        categorie: 'fruits',
         name: "banana"
         
     },{
         id: 3,
-        categorie: 'Fruits',
+        categorie: 'fruits',
         name: "orange"
         
     },
     {
         id: 4,
-        categorie: 'لبنیات',
+        categorie: 'labaniat',
         name: 'shir'
     },
     {
         id: 5,
-        categorie: 'لبنیات',
+        categorie: 'labaniat',
         name: 'kareh'
     },
     {
         id: 6,
-        categorie: 'لبنیات',
+        categorie: 'labaniat',
         name: 'maast'
     },
     {
         id: 7,
-        categorie: 'شوینده ها',
+        categorie: 'shoyande',
         name: 'shoyande1'
     },
     {
         id: 8,
-        categorie: 'شوینده ها',
+        categorie: 'shoyande',
         name: 'shoyande2'
     },{
         id: 9,
-        categorie: 'شوینده ها',
+        categorie: 'shoyande',
         name: 'shoyande3'
     }
     

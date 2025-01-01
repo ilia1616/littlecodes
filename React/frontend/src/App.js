@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Apple from './pages/fruits/apple';
 import Orange from './pages/fruits/orange';
+import ThePage from './pages/catpage';
 
 function App() {
     return (
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/fruits/banana" element={<Banana />} />
                 <Route path="/fruits/apple" element={<Apple />} />
                 <Route path="/fruits/orange" element={<Orange />} />
+                <Route path="/fruits" element={<ThePage specific_category="fruits" /> } />
             </Routes>
         </Router>
     );
