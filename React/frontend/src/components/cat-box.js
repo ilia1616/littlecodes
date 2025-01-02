@@ -14,7 +14,7 @@ const CatBox = ({ catName }) => {
                     <ItemButton
                         key={item.id}
                         id={item.id}
-                        category={item.category}
+                        category={item.categorie}
                         name={item.name}
                     />
                 ))}
