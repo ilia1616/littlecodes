@@ -9,12 +9,14 @@ import {
 import Apple from './pages/fruits/apple';
 import Orange from './pages/fruits/orange';
 import ThePage from './pages/catpage';
+import Admin from './pages/admin';
 
 function App() {
     return (
         <Router>
             <Routes>
                 <Route exact path="/" element={<Home />} />
+                <Route path="/admin" element={<Admin />} />
                 <Route path="/fruits/banana" element={<Banana />} />
                 <Route path="/fruits/apple" element={<Apple />} />
                 <Route path="/fruits/orange" element={<Orange />} />
