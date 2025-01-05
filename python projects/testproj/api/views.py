@@ -6,6 +6,7 @@ from .jsonizer import UserJsonizer
 from django.db import transaction
 transaction.set_autocommit(True)
 from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 
 
 @api_view(["GET"])
@@ -13,6 +14,23 @@ def get_item(request,pk):
     item = get_object_or_404(User, id=pk)
     ser = UserJsonizer(item)
     return Response(ser.data)
+
+@api_view(['GET'])
+def get_items(request, cat):
+    try:
+        items = User.objects.filter(category=cat)  # Filter items by category
+        data = [
+            {
+                'id': item.id,
+                'name': item.name,
+                'category': item.category,
+                # Add more fields as needed
+            }
+            for item in items
+        ]
+        return JsonResponse(data, safe=False)  # Return the filtered data as JSON
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
     
 
 # @api_view(['GET'])
