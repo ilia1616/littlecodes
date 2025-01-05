@@ -5,6 +5,15 @@ from .models import User
 from .jsonizer import UserJsonizer
 from django.db import transaction
 transaction.set_autocommit(True)
+from django.shortcuts import get_object_or_404
+
+
+@api_view(["GET"])
+def get_item(request,pk):
+    item = get_object_or_404(User, id=pk)
+    ser = UserJsonizer(item)
+    return Response(ser.data)
+    
 
 @api_view(['GET'])
 def get_user(request, pk):
@@ -13,12 +22,12 @@ def get_user(request, pk):
     return Response(serializer.data)
     
 @api_view(['POST'])
-def create_user(request):
+def create_item(request):
     serializer = UserJsonizer(data=request.data)
     if serializer.is_valid():
-        username = serializer.validated_data.get('username')
-        if User.objects.filter(username=username).exists():
-            return Response("User exists",status=status.HTTP_406_NOT_ACCEPTABLE)
+        name = serializer.validated_data.get('name')
+        if User.objects.filter(name=name).exists():
+            return Response("Item exists",status=status.HTTP_406_NOT_ACCEPTABLE)
         else:
             serializer.save()
             return Response(serializer.data,
