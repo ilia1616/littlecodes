@@ -32,8 +32,6 @@ export default function Admin() {
         console.error('Error:', error);
         alert('Failed to add item.');
       });
-        // const formJson = Object.fromEntries(formData.entries());
-        // console.log(formJson);
     }
   return (
     <form method='post' onSubmit={handleSubmit}>
