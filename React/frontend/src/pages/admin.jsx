@@ -26,7 +26,7 @@ export default function Admin() {
       .then((data) => {
         console.log('Item added successfully:', data);
         alert('Item added successfully!');
-        // nav('/'); // Navigate back to the home page after successful submission
+        nav('/'); // Navigate back to the home page after successful submission
       })
       .catch((error) => {
         console.error('Error:', error);
