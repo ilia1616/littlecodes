@@ -33,7 +33,7 @@ const CatBox = ({ catName }) => {
                     <ItemButton
                         key={item.id}
                         id={item.id}
-                        category={item.categorie}
+                        category={item.category}
                         name={item.name}
                     />
                 ))}
